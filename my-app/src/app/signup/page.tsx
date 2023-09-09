@@ -9,6 +9,7 @@ const Signup: React.FC = () => {
   const [userpw, setPassword] = useState('');
   const [username, setName] = useState('');
   const [error, setError] = useState('');
+  
   const [selectedRole, setSelectedRole] = useState<any>(null); // Set the initial state type
 
   const roleOptions = [
@@ -18,33 +19,36 @@ const Signup: React.FC = () => {
 console.log(username);
 
   const handleSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
+    console.log("hi");
+    
     if (e) {
       e.preventDefault();
     }
     const newUser = {
-      username: username,
-      useremail,
-      userpw,
+      name: username,
+      lastname:"",
+      email:useremail,
+      password:userpw,
       role: selectedRole?.value ?? '',
+      status:0
     };
 
     try {
-      const res = await axios.post('http://localhost:5000/api/user/signup', newUser, {
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
+      const res = await axios.post('http://localhost:3000/api/user', newUser);
+      console.log(res.data)
       window.localStorage.setItem('User', JSON.stringify(res.data));
+     
       window.location.href = '/';
     } catch (error) {
-      setError('An error occurred while signing up. Please try again later.');
+      error ? console.log(error) : console.log("done");
+      
+      
     }
   };
 
   return (
     <div>
-      <div style={{ marginTop: "40px", marginLeft: "100px" }}>
+      <div className="w-full">
         <div className="inline-flex gap-10">
           <div className="w-full h-96 pt-20 bg-slate-300 rounded-tr rounded-br justify-end items-center inline-flex">
             <img
@@ -112,7 +116,7 @@ console.log(username);
                 />
                 <button
                   className="px-32 py-4 bg-red-500 rounded justify-center items-center gap-2.5 inline-flex" 
-onClick={(e)=>{handleSubmit}}                >
+onClick={()=>{handleSubmit()}}                >
                   <div className="text-neutral-50 text-base font-medium leading-normal">Create Account</div>
                 </button>
                 <div className="justify-start items-center gap-4 inline-flex">

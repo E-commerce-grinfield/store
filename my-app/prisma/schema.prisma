@@ -7,19 +7,21 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url      = env("DATABASE_URL")
+  url = "mysql://root:root@localhost:3306/store"
 }
 
 
 model User {
   id Int @id @default(autoincrement())
   name String
+  lastName String
   email String
   password String
   role String
+  status Int
 
   createdAt DateTime @default(now())
-  updateAt DateTime @updatedAt
+  updateAt DateTime @updatedAt 
   favorite Favorites []
   cart  Carts []
 }
@@ -28,8 +30,8 @@ model Product {
   name        String
   price       Float
   category    String
-  description String
-  image       String
+  description String 
+  image       String @db.LongText
   cart Carts []
   products Favorites []
 } 
