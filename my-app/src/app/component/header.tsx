@@ -3,7 +3,7 @@ import React from 'react'
 export default function Header() {
   return (
    
-    <div className="w-96 h-12 pl-96 pr-32 py-3 bg-black justify-end items-center inline-flex">
+    <div className="w-screen h-12 pl-96 pr-32 py-3 bg-black justify-end items-center inline-flex">
     <div className="justify-start items-start gap-56 inline-flex">
       <div className="justify-start items-center gap-2 flex">
         <div className="w-96 h-4 text-neutral-50 text-sm font-normal leading-tight">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</div>
