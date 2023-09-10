@@ -17,10 +17,10 @@ console.log("hello");
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         const user = {
-          useremail,
-          userpw,
+            email:useremail,
+            password:userpw
         };
-        const res = await axios.post('http://localhost:5000/api/user/login', user, {
+        const res = await axios.post('/api/login', user, {
           headers: {
             'Content-Type': 'application/json',
           },
@@ -82,9 +82,9 @@ console.log("hello");
               {/* Log In button */}
               <button
                 className="px-12 py-4 bg-red-500 rounded justify-center items-center gap-2.5 inline-flex"
-                onClick={() => {
-                   {handleSubmit}
-                }}
+                onClick={
+                   handleSubmit
+                }
               >
                 <div className="text-neutral-50 text-base font-medium leading-normal">Log In</div>
               </button>
