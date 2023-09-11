@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
+
   "dependencies": {
     "@prisma/client": "^5.2.0",
     "@types/bcrypt": "^5.0.0",

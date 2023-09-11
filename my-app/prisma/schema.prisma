@@ -7,11 +7,15 @@ generator client {
 
 datasource db {
   provider = "mysql"
+<<<<<<< HEAD
+  url = env("DATABASE_URL")
+=======
   url = "mysql://root:root@localhost:3306/store"
+>>>>>>> 68e11447ddcf63604e12c28a53b837b2fecea265
 }
 
 
-model User {
+model user {
   id Int @id @default(autoincrement())
   name String
   lastName String
@@ -37,14 +41,14 @@ model Product {
 } 
 model Favorites{
   id Int @id @default(autoincrement())
-  user User  @relation(fields: [userId], references: [id])
+  user user  @relation(fields: [userId], references: [id])
   userId Int
   products  Product   @relation(fields:[productId] ,references :[id])
   productId Int
 }
 model Carts{
   id Int @id @default(autoincrement())
-  user User   @relation(fields:[userId] ,references :[id])
+  user user   @relation(fields:[userId] ,references :[id])
  product   Product  @relation(fields:[productId] ,references :[id])
   productId Int
  userId Int

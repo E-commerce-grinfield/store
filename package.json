@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@chakra-ui/react": "^2.8.1",
+    "axios": "^1.5.0",
+    "bcrypt": "^5.1.1",
+    "nodemailer": "^6.9.5",
+    "react-select": "^5.7.4",
+    "resend": "^1.0.0",
+    "select": "^1.1.2",
+    "toast": "^0.5.4"
+  },
+  "devDependencies": {
+    "@types/nodemailer": "^6.4.9"
+  }
+}
