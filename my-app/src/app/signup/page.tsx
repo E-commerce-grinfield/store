@@ -138,7 +138,7 @@ console.log(username);
         <Select
                   options={roleOptions}
                   value={selectedRole}
-                  onChange={(selectedOption) => setSelectedRole(selectedOption)}
+                  onChange={(selectedOption:string) => setSelectedRole(selectedOption)}
                   placeholder="Choose Admin or User"
                 />
           <div className="px-32 py-4 bg-red-500 rounded justify-center items-center gap-2.5 inline-flex">
