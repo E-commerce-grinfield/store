@@ -7,11 +7,10 @@ generator client {
 
 datasource db {
   provider = "mysql"
-<<<<<<< HEAD
+
   url = env("DATABASE_URL")
-=======
-  url = "mysql://root:root@localhost:3306/store"
->>>>>>> 68e11447ddcf63604e12c28a53b837b2fecea265
+
+
 }
 
 

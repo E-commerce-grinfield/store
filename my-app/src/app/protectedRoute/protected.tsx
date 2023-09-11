@@ -3,7 +3,7 @@
 import axios, { AxiosError } from "axios";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-import Link from "next/link";
+
 
 interface UserResponse {
   user: string | null;
@@ -46,7 +46,7 @@ export default function ProtectedRoute({
 
 async function getUser(): Promise<UserResponse> {
   try {
-    const { data } = await axios.get("/api/auth/me");
+    const { data } = await axios.get("/api/auth/verify");
 
     return {
       user: data,
