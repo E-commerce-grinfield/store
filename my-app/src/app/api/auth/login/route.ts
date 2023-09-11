@@ -7,9 +7,6 @@ import { serialize } from "cookie";
 
 
 export const POST =  async (req: NextRequest) => {
-   
-   
-   
    try {
     
     const { email, password } = await req.json();
@@ -27,6 +24,7 @@ export const POST =  async (req: NextRequest) => {
       const  access= process.env.ACCESS_TOKEN_SECRET
         if(!access) {throw new Error("erro no access token")}
       const token = jwt.sign({ userId: user.id },access, { expiresIn: '1h' });
+      console.log("hii");
 
     
     const serialized = serialize("jwt",token,{
