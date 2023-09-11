@@ -1,0 +1,39 @@
+
+    [
+        
+        {
+        "name":"Gucci Duffle Bag",
+        "description":"Introduced within the Gucci Savoy line, this duffle bag is crafted from beige and blue GG Supreme canvas combined with the distinctive combination of the House Web with Double G hardware. The top-handle shape is also equipped with an adjustable canvas strap so it can be worn on the shoulder. ",
+        "image":"https://f08c4e54.aerocdn.com/image-factory/1536x1536/images/products/cr5n6c7Pzh3Ouecq1DeGWoKwa6H8nED6esSLxrhW.jpg",
+        "price":"1000$",
+        "category":"Woman's Fashion"
+   } ,
+
+
+   {
+    "name":"Corsair H100i Liquid CPU Cooler",
+    "description":"Corsair H100i RGB PLATINUM AIO Liquid CPU Cooler,240mm,Dual ML120 PRO RGB PWM Fans,Intel 115x/2066,AMD AM4/TR4,",
+    "image":"https://www.moddiy.com/product_images/w/748/corsair-h60-hydro-series-pre-filled-closed-loop-cpu-water-cooling-frwc-ch60__21071_zoom.jpg",
+    "price":"150$",
+    "category":"Computers"
+} ,
+
+
+{
+    "name":"Kids Electric Car",
+    "description":"Electric cars are cars which are electrically charged at the charging station, so they do not need petrol. Lightweight and efficient lithium ion batteries can keep the car running 100 km with a speed of 80 km/hour. Some electric cars can even give you an estimate of how far they can travel that day!",
+    "image":"https://5.imimg.com/data5/SELLER/Default/2022/11/LT/VZ/KJ/95264217/kids-electric-car.jpg",
+    "price":"500$",
+    "category":"Baby's & toys"
+} ,
+
+
+{
+    "name":"JBL Go 3 Portable Bluetooth Speaker",
+    "description":"JBL Go 3 is IP67 waterproof and dustproof, so you can bring your speaker anywhere. Wirelessly stream music from your phone, tablet, or any other Bluetooth-enabled device. JBL Go 3 gives you up to 5 hours of playtime on a single charge. ",
+    "image":"https://www.bhphotovideo.com/images/images2500x2500/jbl_jblgo3blkam_go_3_portable_bluetooth_1583006.jpg",
+    "price":"50$",
+    "category":"Electronics"
+} 
+
+]
