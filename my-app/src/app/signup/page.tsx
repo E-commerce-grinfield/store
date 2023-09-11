@@ -227,7 +227,7 @@ console.log(username);
               <div className="opacity-70 text-neutral-50 text-xs font-medium leading-[18px]">Save $3 with App New User Only</div>
               <div className="justify-start items-center gap-2 inline-flex">
                 <div className="w-20 h-20 p-0.5 bg-black justify-center items-center flex">
-                  <img className="w-[76px] h-[76px] border border-white" src="https://via.placeholder.com/76x76" />
+                  <img className="w-[76px] h-[76px] border border-white" src="https://s3-alpha-sig.figma.com/img/75f3/94c0/a1c7dc5b68a42239311e510f54d8cd59?Expires=1695600000&Signat" />
                 </div>
                 <div className="flex-col justify-start items-start gap-1 inline-flex">
                   <div className="w-[110px] h-10 relative bg-black">
