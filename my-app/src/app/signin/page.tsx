@@ -12,22 +12,28 @@ import { sign } from 'crypto';
     const [userpw, setUserPassword] = useState('');
     const [Error,setError]=useState('');
     const [username,setName]=useState('LOG IN')
-console.log("hello");
+
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        const user = {
+
+        try {
+          const user = {
             email:useremail,
             password:userpw
         };
-        const res = await axios.post('/api/login', user, {
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        });
+        console.log(user,"user");
+        const res = await axios.post('/api/login', user);
+        console.log(res,"response");
         window.localStorage.setItem('User', JSON.stringify(res.data));
-        setError('Authentication successful')
-        window.location.href = '/';
+        }
+       catch (err){
+console.log(err,"error");
+
+       }
+        
+       
+        //window.location.href = '/';
 
     }
   return (
