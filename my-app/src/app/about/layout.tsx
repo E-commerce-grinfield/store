@@ -1,9 +1,9 @@
 import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import Header from '@/app/component/header'
-import Signin from './signin/page'
-import ProtectedRoute from './protectedRoute/protected'
+
+
+import ProtectedRoute from '../protectedRoute/protected'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-     <Header/>
+   
         
-     {children}
+     <ProtectedRoute >{children}</ProtectedRoute>
         </body>
       
     </html>
