@@ -16,8 +16,7 @@ export default function Products() {
         const response = await axios.get("http://localhost:3000/api/products");
         const productsData = response.data;
         setProducts(productsData);
-        const section1 = products.filter(products1 => products.name === 'section1');
-        const section2 = products.filter(bets=> products.name === 'section2');
+      
       } catch (error) {
         console.error("Error fetching data:", error);
       }
