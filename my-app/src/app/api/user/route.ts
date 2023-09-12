@@ -5,13 +5,15 @@ export const POST = async  (req: Request) =>{
    
   try {
     const body =  await req.json();
+    console.log(body);
+    
     const {email ,name,password,role,lastname,status} = body
     const user = await prisma.user.findFirst({
       where: {
         email: email
       },
     })
-    const Intstatus = parseInt(status)
+    const Intstatus = Number(status)
     if (user?.email) return new Response(JSON.stringify({message:" email allready exist !"}))
     console.log(body);
     const salt = await bcrypt.genSalt(10);
