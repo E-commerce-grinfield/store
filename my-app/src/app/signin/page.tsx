@@ -31,7 +31,7 @@ import { sign } from 'crypto';
         
        if(res.data.message==="Successfully logged in"){
         window.location.href = '/';
-        localStorage.setItem("tok",)
+        
         
 
        }

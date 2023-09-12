@@ -1,22 +1,44 @@
 "use client"
-
+import { useRouter } from 'next/navigation'
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Link from "next/link";
 import todays from "../../todays.json"
 import bestSelling from "../../bestSelling.json"
 import ourProduct from "../../ourProduct.json"
 import { stringify } from "querystring";
+import Link from 'next/link';
+import Router from 'next/router';
 console.log(bestSelling)
 console.log(ourProduct)
 
 export default function Products() {
+
+  interface Product {
+    id : Number,
+    name : String,
+    price : Number,
+    category : String,
+    description : String,
+    image : String
+  }
+
   const [products, setProducts] = useState([]);
   const [todaysData , setTodaysData]=useState([])
   const [bestSellingData , setbestSellingData]=useState([])
   const [ourProductData , setOurProductData]=useState([])
+  const [details,setDetais] = useState({})
+  const router = useRouter()
+ 
+console.log(products,"products");
 
-  console.log(products)
+ 
+
+function sendProps () {
+
+  
+}
+
+
 
  
 
@@ -41,8 +63,6 @@ export default function Products() {
 
   return (
     <div>
-
-
 {/*categories*/}
 <div style={{marginLeft:"80px"}} className="w-56 h-80 flex-col justify-start items-start gap-4 inline-flex">
   <div  style={{marginTop:"180px"}} className="justify-start items-start gap-12 inline-flex">
@@ -113,8 +133,14 @@ export default function Products() {
 </div>
 
 {/*product of today's*/}
-{todaysData.map((product)=>(
-  <div   className="w-60 h-10 px-0 py-4  rounded justify-center items-center gap-2.5 inline-flex" style={{ marginLeft:"50px" , marginTop:"50px" }}   >
+{todaysData.map((product : Product)=>(
+ 
+  
+  <Link href={{
+    pathname : `/productDetail/${product.id}`
+  }}>
+    { console.log(product,"id product")}
+    <div   className="w-60 h-10 px-0 py-4  rounded justify-center items-center gap-2.5 inline-flex" style={{ marginLeft:"50px" , marginTop:"50px" }}   >
 <div  className="w-64 h-80 flex-col justify-start items-start gap-4 inline-flex">
   <div className="w-64 h-64 relative bg-neutral-0 rounded">
     <div >
@@ -146,6 +172,8 @@ export default function Products() {
   </div>
 </div>
 </div>
+  </Link>
+
 
 
 ))}
@@ -269,8 +297,13 @@ export default function Products() {
       </div>
     </div>
     <div className="w-48 h-44 px-6 py-4 left-[40px] top-[35px] absolute justify-center items-center inline-flex">
-      <img  className="w-36 h-36" src={product.image} />
+      <img  className="w-36 h-36" src={product.image}
+       onClick={()=>{setDetais(product)
+      }}  />
+      
     </div>
+    
+   
   </div>
   <div className="flex-col justify-start items-start gap-2 flex">
     <div  style={{ marginLeft:"80px"  }} className="text-black text-base font-medium leading-normal">{product.name}</div>

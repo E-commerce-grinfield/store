@@ -1,20 +1,17 @@
 "use client"
 import axios from 'axios'
+import { useRouter } from 'next/router';
+import { useParams, useSearchParams } from 'next/navigation';
+
+import React , { useState }from 'react'
+ function ProductDetail({params}:{params :{id:String}}) {
+ //const { dets } = useParams();
+console.log(params.id,"id");
 
 
 
 
-import React from 'react'
-
-async function ProductDetail() {
-
-
-
-
- 
- 
-   
-  return (
+ return (
     <>
 <div className=" h-80 flex-col justify-start items-start gap-4 inline-flex ml-45 ">
  
@@ -30,8 +27,9 @@ async function ProductDetail() {
   </div>
   <div>
   <div className="h-[600px] px-[27px] pt-[154px] pb-[131px] left-[335px] top-[323px] absolute bg-neutral-100 rounded flex-col justify-end items-center inline-flex">
-    <img className="w-[446px] h-[315px]" src="https://via.placeholder.com/446x315" />
+    <img className="w-[446px] h-[315px]"  />
   </div>
+  
   <div className="w-[170px] h-[138px] pl-6 pr-[25px] py-3 left-[135px] top-[323px] absolute bg-neutral-100 rounded justify-center items-center inline-flex">
     <img className="w-[121px] h-[114px] " src="https://via.placeholder.com/121x114" />
   </div>
@@ -44,8 +42,9 @@ async function ProductDetail() {
   <div className="w-[170px] h-[138px] px-6 py-4 left-[135px] top-[785px] absolute bg-neutral-100 rounded justify-center items-center inline-flex">
     <img className="w-[122px] h-[106px]" src="https://via.placeholder.com/122x106" />
   </div>
-  <div className="left-[903px] top-[323px] absolute text-black text-2xl font-semibold leading-normal tracking-wide">Havic HV G-92 Gamepad</div>
-  <div className="left-[903px] top-[400px] absolute text-black text-2xl font-normal leading-normal tracking-wide">$192.00</div>
+  <div className="left-[903px] top-[323px] absolute text-black text-2xl font-semibold leading-normal tracking-wide">name</div>
+  
+  <div className="left-[903px] top-[400px] absolute text-black text-2xl font-normal leading-normal tracking-wide">price</div>
   <div className="left-[903px] top-[363px] absolute justify-start items-start gap-4 inline-flex">
     <div className="justify-start items-start gap-2 flex">
       <div className="justify-start items-start flex" />
@@ -102,9 +101,9 @@ async function ProductDetail() {
     </div>
   </div>
   <div className="px-12 py-2.5 left-[1079px] top-[659px] absolute bg-red-500 rounded justify-center items-center gap-2.5 inline-flex">
-  state ? <button className="px-4 py-2 text-neutral-50 bg-red-500 rounded-md text-base font-medium leading-normal hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300">
-    buy me 
-  </button> : sign in to buy
+  <button className="px-4 py-2 text-neutral-50 bg-red-500 rounded-md text-base font-medium leading-normal hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300">
+    
+  buy now</button> 
 </div>
 
   <div className="w-10 h-10 p-1 left-[1262px] top-[661px] absolute rounded border border-black border-opacity-50 justify-center items-center inline-flex">
