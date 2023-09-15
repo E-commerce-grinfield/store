@@ -52,7 +52,7 @@ export default function Cart() {
  <div >
 <div  style={{marginLeft:"400px" , marginTop:"80px"}}>
 <div className="text-black text-base font-normal font-['Poppins'] leading-normal">{JSON.parse(prod).name}</div>
-<div  className="w-0 h-24 relative bg-white rounded shadow">
+<div  className=" h-24 relative bg-white rounded shadow">
   <div className="left-[387px] top-[39px] absolute text-black text-base font-normal font-['Poppins'] leading-normal">{JSON.parse(prod).price}$</div>
   <div className="left-[1063px] top-[39px] absolute text-black text-base font-normal font-['Poppins'] leading-normal">{subtotal}$</div>
   <div className="w-16 h-11 px-3 py-1.5 left-[710px] top-[29px] absolute rounded border border-black border-opacity-40 justify-center items-center inline-flex">
