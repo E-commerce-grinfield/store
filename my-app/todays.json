@@ -2,7 +2,7 @@
 
     {
         "name":"Havit gaming Gamepad",
-        "description":"wireless gamepad for computer and game console Sony Playstation 2/3. The model is equipped with 12 buttons, 8-position switch types and two analog joysticks, allowing you to play additional games, such as racing or football simulators.",
+        "description":"wireless gamepad for computer and game console Sony Playstation 2/3. The model is equipped with 12 buttons, 8-position switch types and two analog joysticks",
         "image":"https://mmsrilanka.com/image/cache/catalog/data/Products/Gaming%20Zone/Controllers/HV-G89W-Red-550x550.jpg",
         "price":"160",
         "category":"Gaming"
@@ -18,7 +18,7 @@
     {
 
         "name":"Bread Dry dog Food",
-        "description":"Eukanuba Puppy Small Breed dry dog food is complete and balanced nutrition for small breed puppies up to 12 months old with an expected adult weight under 23 lbs. As a result of increased demand, you may experience difficulty purchasing certain products in the coming months. If you need an alternative diet recommendation or help locating a product, please contact our Nutritional Advisors at 800-592-6687 or via our Live Chat function.",
+        "description":"Eukanuba Puppy Small Breed dry dog food is complete and balanced nutrition for small breed puppies up to 12 months old with an expected adult weight under 23 lbs.",
         "image":"https://www.hillspet.com/content/dam/pim/hills/en_us/sd/dry/sd-canine-adult-large-breed-dry-productShot_zoom.jpg",
         "price":"80",
         "category":"Groceries & Pets"
@@ -34,7 +34,19 @@
 
 
 
+    },
+
+    {
+        "name":"Women's Jackets  ",
+        "description":"Whistles Slim Jersey Jacket, Ivory        ",
+        "image":"https://n.nordstrommedia.com/id/sr3/c9d354bd-6ecf-420c-94dc-a48277b074dd.jpeg?h=365&w=240&dpr=2",
+        "price":"120",
+        "category":"Womans Fashion"
+
+
+
     }
+
 
     
 

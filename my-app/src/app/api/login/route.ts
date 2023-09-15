@@ -14,13 +14,17 @@
             
             })
             console.log(user);
-            console.log(!user)
-            if(!user) {return new Response(JSON.stringify({message:"wrong email"}))}
+            if(!user) {
+                console.log("hi");
+                
+                return new Response(JSON.stringify({message:"wrong email"}))}
             //compare password1
             
             else {
             bcrypt.compare(password, user.password, async function (err :any, auth :boolean) {
                 if (err) {
+                    console.log(err,"the err");
+                    
                 return new  Response (JSON.stringify(err))
                 }
     

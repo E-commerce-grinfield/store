@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
 import { sign } from 'crypto';
  //interface Signin {
    // onSubmit: (useremail: string, userpw: string) => void;
@@ -12,7 +13,7 @@ import { sign } from 'crypto';
     const [userpw, setUserPassword] = useState('');
     const [Error,setError]=useState('');
     const [username,setName]=useState('LOG IN')
-console.log("hello");
+
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
@@ -20,59 +21,25 @@ console.log("hello");
             email:useremail,
             password:userpw
         };
-        const res = await axios.post('/api/login', user, {
+        const res = await axios.post('/api/auth/login', user, {
           headers: {
             'Content-Type': 'application/json',
           },
+
         });
-        window.localStorage.setItem('User', JSON.stringify(res.data));
-        setError('Authentication successful')
+        console.log(res,"res");
+        
+       if(res.data.message==="Successfully logged in"){
         window.location.href = '/';
+        localStorage.setItem("tok",)
+        
+
+       }
 
     }
   return (
     <div className="w-full relative bg-white">
-    <div className="w-full h-12 pl-[445px] pr-[136px] py-3 left-0 top-0 absolute bg-black justify-end items-center inline-flex">
-      <div className="justify-start items-start gap-[231px] inline-flex">
-        <div className="justify-start items-center gap-2 flex">
-          <div className="w-[474px] h-[18px] text-neutral-50 text-sm font-normal leading-[21px]">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</div>
-          <div className="text-center text-neutral-50 text-sm font-semibold underline leading-normal">ShopNow</div>
-        </div>
-        <div className="justify-center items-center gap-[5px] flex">
-          <div className="text-neutral-50 text-sm font-normal leading-[21px]">English</div>
-          <div className="w-6 h-6 relative" />
-        </div>
-      </div>
-    </div>
-    <div className="left-[135px] top-[86px] absolute justify-start items-center gap-[210px] inline-flex">
-      <div className="justify-start items-start gap-[232px] flex">
-        <div className="w-[118px] h-6 justify-center items-center flex">
-          <div className="text-black text-2xl font-bold leading-normal tracking-wide">Exclusive</div>
-        </div>
-        <div className="justify-start items-start gap-12 flex">
-          <div className="w-12 h-6 justify-center items-center flex">
-            <div className="text-center text-black text-base font-normal leading-normal">Home</div>
-          </div>
-          <div className="w-[66px] h-6 justify-center items-center flex">
-            <div className="text-center text-black text-base font-normal leading-normal">Contact</div>
-          </div>
-          <div className="w-12 h-6 justify-center items-center flex">
-            <div className="text-center text-black text-base font-normal leading-normal">About</div>
-          </div>
-          <div className="w-[61px] h-6 justify-center items-center flex">
-            <div className="text-center text-black text-base font-normal leading-normal">Sign Up</div>
-          </div>
-        </div>
-      </div>
-      <div className="justify-start items-center gap-6 flex">
-        <div className="pl-5 pr-3 py-[7px] bg-neutral-100 rounded flex-col justify-center items-center gap-2.5 inline-flex">
-          <div className="justify-center items-center gap-[34px] inline-flex">
-            <div className="opacity-50 text-black text-xs font-normal leading-[18px]">What are you looking for?</div>
-            <div className="w-6 h-6 relative" />
-          </div>
-        </div>
-      </div>
-    </div>
+
     <div className="w-full h-[0px] left-0 top-[140px] absolute justify-center items-center inline-flex">
       <div className="w-full h-[0px] origin-top-left rotate-180 opacity-30 border border-black"></div>
     </div>
