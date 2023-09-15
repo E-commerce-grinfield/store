@@ -3,15 +3,13 @@ import React from 'react'
 
 
 function header() {
-  return (
-    
-
+  return (    
     
 	<div>
+ 
 
 <div>
-
-  
+ 
 </div>
 
     
@@ -80,19 +78,13 @@ function header() {
 
   </div>
 </div>
-
-{/*footer*/}
-<div >
-
+</div  >
 
 </div>
-</div>
 
-	 
-	</div>
-  
 
-  
+
+
   )
   
 }

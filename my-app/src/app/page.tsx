@@ -86,6 +86,7 @@ console.log(sliced,"test");
 {/*picture in the top*/}
 
 <img style={{marginLeft:"500px " , marginTop:"-260px"}} src='https://www.thetechedvocate.org/wp-content/uploads/2023/07/screen-shot-2022-09-07-at-2-11-25-pm-2-1-1-660x400@2x.webp'/>
+
 </div>
     {/*flas sales*/}
     <div style={{marginTop:"180px" , marginLeft:"80px"}} className=" w-0 h-15 relative w-96 h-24 justify-start items-end gap-20 inline-flex">
@@ -135,10 +136,7 @@ console.log(sliced,"test");
 {/*product of today's*/}
 {todaysData.map((product : Product)=>(
   
-  <div  
-  
-  
-  className="w-60 h-10 px-0 py-4  rounded justify-center items-center gap-2.5 inline-flex" style={{ marginLeft:"50px" , marginTop:"50px" }}   >
+  <div  className="w-0 h-80 px-20 py-4 rounded justify-center items-center gap-60 inline-flex mx-12 my-4" style={{ marginLeft: "50px", marginTop: "50px" }}   >
 <div  className="w-64 h-80 flex-col justify-start items-start gap-4 inline-flex">
   <div className="w-64 h-64 relative bg-neutral-0 rounded">
     <div >
@@ -166,7 +164,7 @@ console.log(sliced,"test");
         
           }}
       
-      style={{ marginLeft:"-300px" , marginTop:"300px" }}   className="w-36 h-36 " src={product.image} />
+      style={{ marginLeft:"-300px" , marginTop:"300px" }}   className="w-44 h-42 " src={product.image} />
     </div>
     
   </div>
@@ -175,6 +173,9 @@ console.log(sliced,"test");
     
     <div className="justify-start items-start gap-3 inline-flex">
   <div style={{ marginLeft:"-80px"  }} className="text-red-500 text-base font-medium leading-normal">{product.price}$</div>
+  
+  
+  
       <div className="opacity-50 text-black text-base font-medium line-through leading-normal">$360</div>
     </div>
     <div className="justify-start items-start gap-2 inline-flex">
@@ -194,6 +195,7 @@ window.location.href="/cart"
   Add to Cart
 </button>
   </div>
+
 </div>
 
 </div>
@@ -338,6 +340,7 @@ window.location.href="/cart"
 
 ))}
 
+
 {/*explore our product*/}
 
 <div style={{marginTop:"600px" , marginLeft:"80px"}}>
@@ -459,15 +462,16 @@ sliced===true ? setnewdata(ourProduct.slice(0,2)) : setnewdata(ourProduct)})}
   <div className="text-5x9  w-60 h-1 px-1 py-4  rounded justify-center items-center gap-2.5 inline-flex ">New Arrival</div>
 </div> 
 <div >
-  
-
-<img  style={{marginLeft:"400px" , marginTop:"50px"}} className="w-90 h-auto" src="https://img.freepik.com/premium-photo/beautiful-young-woman-black-dress-hat-black-background_73107-1798.jpg"/>
-
 </div>
 </div>
+<div style={{marginLeft:"100px"}} >
+<img  style={{marginLeft:"400px" , marginTop:"50px"}} className="w-90 h-auto" src="https://img.freepik.com/premium-photo/young-man-suit-man-with-beard-male-portrait-black-background-stylish-man-black-white-photo-male-model-studio-portrait-guy-classic-suit_154724-54.jpg?w=360"/><img  style={{marginLeft:"818px" , marginTop:"-540px"}} className="w-150 h-auto" src="https://5.imimg.com/data5/SELLER/Default/2022/9/RN/IN/KQ/153675560/sony-playstation-5-disc-version-console-500x500.png"/>
+</div>
+
+
 
 {/*service*/}
-<div style={{marginTop:"60px" , marginLeft:"800px"}}>
+<div style={{marginTop:"300px" , marginLeft:"800px"}}>
 <div className="w-96 h-40 justify-center items-center gap-20 inline-flex">
   <div className="flex-col justify-start items-center gap-6 inline-flex">
     <div className="w-20 h-20 relative">
