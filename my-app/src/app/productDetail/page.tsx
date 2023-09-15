@@ -1,36 +1,27 @@
 "use client"
-import axios from 'axios'
 
+import React , { useState} from 'react'
 
+function ProductDetail() {
 
-
-import React from 'react'
-
-async function ProductDetail() {
-
-
-
-
- 
- 
-   
+  const [prod,setProd]=useState(localStorage.getItem("product"))
+  
+  console.log("prod",JSON.parse(prod).name)
   return (
     <>
-<div className=" h-80 flex-col justify-start items-start gap-4 inline-flex ml-45 ">
- 
-  <div className="w-screen h-[0px] left-0 top-[142px] absolute justify-center items-center inline-flex  ml-40">
+     <div className="w-[1437px] h-[2093px] relative bg-white">
+  <div className="w-[1440px] h-[0px] left-0 top-[142px] absolute justify-center items-center inline-flex">
     <div className="w-[1440px] h-[0px] opacity-30 border border-black"></div>
   </div>
-  <div className=" left-10 top-[222px] absolute justify-start items-center gap-3 inline-flex  ">
+  <div className="left-[135px] top-[222px] absolute justify-start items-center gap-3 inline-flex">
     <div className="opacity-50 text-black text-sm font-normal leading-[21px]">Account</div>
     <div className="w-[13.19px] h-[0px] origin-top-left rotate-[117.05deg] opacity-50 border border-black"></div>
-    <div className="opacity-50 text-black text-sm font-normal leading-[21px]">Gaming</div>
+    <div className="opacity-50 text-black text-sm font-normal leading-[21px]">gh</div>
     <div className="w-[13.19px] h-[0px] origin-top-left rotate-[117.05deg] opacity-50 border border-black"></div>
-    <div className="text-black text-sm font-normal leading-[21px]">Havic HV G-92 Gamepad</div>
+    <div className="text-black text-sm font-normal leading-[21px]">{JSON.parse(prod).name}</div>
   </div>
-  <div>
   <div className="h-[600px] px-[27px] pt-[154px] pb-[131px] left-[335px] top-[323px] absolute bg-neutral-100 rounded flex-col justify-end items-center inline-flex">
-    <img className="w-[446px] h-[315px]" src="https://via.placeholder.com/446x315" />
+    <img className="w-[446px] h-[315px]" src={JSON.parse(prod).image}/>
   </div>
   <div className="w-[170px] h-[138px] pl-6 pr-[25px] py-3 left-[135px] top-[323px] absolute bg-neutral-100 rounded justify-center items-center inline-flex">
     <img className="w-[121px] h-[114px] " src="https://via.placeholder.com/121x114" />
@@ -44,8 +35,8 @@ async function ProductDetail() {
   <div className="w-[170px] h-[138px] px-6 py-4 left-[135px] top-[785px] absolute bg-neutral-100 rounded justify-center items-center inline-flex">
     <img className="w-[122px] h-[106px]" src="https://via.placeholder.com/122x106" />
   </div>
-  <div className="left-[903px] top-[323px] absolute text-black text-2xl font-semibold leading-normal tracking-wide">Havic HV G-92 Gamepad</div>
-  <div className="left-[903px] top-[400px] absolute text-black text-2xl font-normal leading-normal tracking-wide">$192.00</div>
+  <div className="left-[903px] top-[323px] absolute text-black text-2xl font-semibold leading-normal tracking-wide">{JSON.parse(prod).name}</div>
+  <div className="left-[903px] top-[400px] absolute text-black text-2xl font-normal leading-normal tracking-wide">{JSON.parse(prod).price}$</div>
   <div className="left-[903px] top-[363px] absolute justify-start items-start gap-4 inline-flex">
     <div className="justify-start items-start gap-2 flex">
       <div className="justify-start items-start flex" />
@@ -56,7 +47,7 @@ async function ProductDetail() {
       <div className="opacity-60 text-green-500 text-sm font-normal leading-[21px]">In Stock</div>
     </div>
   </div>
-  <div className="w-[373px] left-[903px] top-[448px] absolute text-black text-sm font-normal leading-[21px]">PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.</div>
+  <div className="w-[373px] left-[903px] top-[448px] absolute text-black text-sm font-normal leading-[21px]">{JSON.parse(prod).description}</div>
   <div className="left-[904px] top-[559px] absolute justify-start items-start gap-6 inline-flex">
     <div className="text-black text-xl font-normal leading-tight tracking-wide">Colours:</div>
     <div className="justify-start items-start gap-2 flex">
@@ -102,11 +93,8 @@ async function ProductDetail() {
     </div>
   </div>
   <div className="px-12 py-2.5 left-[1079px] top-[659px] absolute bg-red-500 rounded justify-center items-center gap-2.5 inline-flex">
-  state ? <button className="px-4 py-2 text-neutral-50 bg-red-500 rounded-md text-base font-medium leading-normal hover:bg-red-600 focus:outline-none focus:ring focus:ring-red-300">
-    buy me 
-  </button> : sign in to buy
-</div>
-
+    <div className="text-neutral-50 text-base font-medium leading-normal">Buy Now</div>
+  </div>
   <div className="w-10 h-10 p-1 left-[1262px] top-[661px] absolute rounded border border-black border-opacity-50 justify-center items-center inline-flex">
     <div className="w-8 h-8 relative flex-col justify-start items-start flex" />
   </div>
@@ -120,7 +108,6 @@ async function ProductDetail() {
         <div className="text-black text-base font-medium leading-normal">Free Delivery</div>
         <div className="text-black text-xs font-medium underline leading-[18px]">Enter your postal code for Delivery Availability</div>
       </div>
-      
     </div>
     <div className="left-[16px] top-[106px] absolute justify-start items-center gap-4 inline-flex">
       <div className="w-10 h-10 relative" />
@@ -128,7 +115,6 @@ async function ProductDetail() {
         <div className="text-black text-base font-medium leading-normal">Return Delivery</div>
         <div><span className="text-black text-xs font-medium leading-[18px]">Free 30 Days Delivery Returns. </span><span className="text-black text-xs font-medium underline leading-[18px]">Details</span></div>
       </div>
-    </div>
     </div>
   </div>
   <div className="left-[135px] top-[1063px] absolute flex-col justify-start items-start gap-[60px] inline-flex">
@@ -278,7 +264,7 @@ async function ProductDetail() {
       </div>
     </div>
   </div>
-
+  
 </div>
     </>
 

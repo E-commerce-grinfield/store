@@ -1,31 +1,44 @@
 "use client"
 
 import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import todays from "../../todays.json"
 import bestSelling from "../../bestSelling.json"
 import ourProduct from "../../ourProduct.json"
-import { stringify } from "querystring";
+import axios from "axios";
+import { Product } from "@prisma/client";
+
 console.log(bestSelling)
 console.log(ourProduct)
 
+
 export default function Products() {
-  const [products, setProducts] = useState([]);
+  // const [products , setProducts] = useState([])
   const [todaysData , setTodaysData]=useState([])
   const [bestSellingData , setbestSellingData]=useState([])
   const [ourProductData , setOurProductData]=useState([])
+  const [displayAllProducts, setDisplayAllProducts] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [filttered,setfiltered]=useState(false)
+  const [sliced,setsliced]=useState(false)
 
-  console.log(products)
+const [newdata,setnewdata]=useState(ourProduct.slice(0,2))
+console.log(newdata,"sliced");
+console.log(sliced,"test");
 
+
+  var filteredProducts = 
+  ourProductData.filter((product) => product.category === selectedCategory)
+  
  
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.get("http://localhost:3000/api/products");
-        const productsData = response.data;
-        setProducts(productsData);
+        // const productsData = response.data;
+        // setProducts(productsData);
         setTodaysData(todays);
         setbestSellingData(bestSelling)
         setOurProductData(ourProduct)
@@ -37,7 +50,7 @@ export default function Products() {
     };
 
     fetchData();
-  }, []); // The empty dependency array means this effect runs once after the initial render
+  }, [filttered,sliced]); // The empty dependency array means this effect runs once after the initial render
 
   return (
     <div>
@@ -46,8 +59,15 @@ export default function Products() {
 {/*categories*/}
 <div style={{marginLeft:"80px"}} className="w-56 h-80 flex-col justify-start items-start gap-4 inline-flex">
   <div  style={{marginTop:"180px"}} className="justify-start items-start gap-12 inline-flex">
-    <button className="text-center text-black text-base font-normal leading-normal">Woman’s Fashion</button>
-    <div className="w-6 h-6 relative origin-top-left -rotate-90"></div>
+  <button
+  className={`text-center text-black text-base font-normal leading-normal ${
+    selectedCategory === "Womans Fashion" ? "text-red-500" : ""
+  }`}
+  onClick={(()=>{setSelectedCategory("Womans Fashion");
+  setfiltered(true)})}
+>
+  Woman’s Fashion
+</button>
   </div>
   <div className="justify-start items-start gap-20 inline-flex">
     <button className="text-center text-black text-base font-normal leading-normal">Men’s Fashion</button>
@@ -113,8 +133,12 @@ export default function Products() {
 </div>
 
 {/*product of today's*/}
-{todaysData.map((product)=>(
-  <div   className="w-60 h-10 px-0 py-4  rounded justify-center items-center gap-2.5 inline-flex" style={{ marginLeft:"50px" , marginTop:"50px" }}   >
+{todaysData.map((product : Product)=>(
+  
+  <div  
+  
+  
+  className="w-60 h-10 px-0 py-4  rounded justify-center items-center gap-2.5 inline-flex" style={{ marginLeft:"50px" , marginTop:"50px" }}   >
 <div  className="w-64 h-80 flex-col justify-start items-start gap-4 inline-flex">
   <div className="w-64 h-64 relative bg-neutral-0 rounded">
     <div >
@@ -130,21 +154,48 @@ export default function Products() {
         </div>
       </div>
     </div>
+
     <div className="w-48 h-44 px-6 py-4 left-[40px] top-[35px] absolute justify-center items-center inline-flex">
-      <img  style={{ marginLeft:"-300px" , marginTop:"400px" }}   className="w-36 h-36 " src={product.image} />
+      <img 
+      onClick={()=>{
+
+        localStorage.setItem("product",JSON.stringify(product))
+        
+        window.location.href="/productDetail"
+        
+        
+          }}
+      
+      style={{ marginLeft:"-300px" , marginTop:"300px" }}   className="w-36 h-36 " src={product.image} />
     </div>
+    
   </div>
   <div  style={{marginTop:"400px"}} className="flex-col justify-start items-start gap-2 flex">
     <div  style={{ marginLeft:"-130px"  }} className="w-60 h-90 px-0 py-4  rounded justify-center items-center gap-2.5 inline-flex">{product.name}</div>
+    
     <div className="justify-start items-start gap-3 inline-flex">
-      <div style={{ marginLeft:"-80px"  }} className="text-red-500 text-base font-medium leading-normal">{product.price}$</div>
+  <div style={{ marginLeft:"-80px"  }} className="text-red-500 text-base font-medium leading-normal">{product.price}$</div>
       <div className="opacity-50 text-black text-base font-medium line-through leading-normal">$360</div>
     </div>
     <div className="justify-start items-start gap-2 inline-flex">
       <div className="justify-start items-start flex"></div>
     </div>
+    <button onClick={()=>{
+
+localStorage.setItem("product",JSON.stringify(product))
+
+window.location.href="/cart"
+
+
+  }}
+  className="w-32 h-10 px-4 py-2 text-white bg-black hover:bg-gray-800 rounded-md shadow-md focus:outline-none"
+  style={{ marginTop: "-150px", marginLeft: "-80px" }}
+>
+  Add to Cart
+</button>
   </div>
 </div>
+
 </div>
 
 
@@ -251,13 +302,12 @@ export default function Products() {
 
 {/*best selling*/}
 {bestSellingData.map((product)=>(
-
-<div  style={{ marginLeft:"50px" , marginTop:"50px" }}  >
-<div className="w-64 h-80 flex-col justify-start items-start gap-4 inline-flex">
+  <div   className="w-60 h-10 px-0 py-4  rounded justify-center items-center gap-2.5 inline-flex" style={{ marginLeft:"50px" , marginTop:"50px" }}   >
+<div  className="w-64 h-80 flex-col justify-start items-start gap-4 inline-flex">
   <div className="w-64 h-64 relative bg-neutral-0 rounded">
     <div >
       <div>
-        <div className="w-8 h-8 left-0 top-0 absolute bg-white rounded-full"></div>
+        <div  className="w-8 h-8 left-0 top-0 absolute bg-white rounded-full"></div>
         <div className="w-6 h-6 left-[5px] top-[5px] absolute"></div>
       </div>
       <div className="w-8 h-8 relative">
@@ -269,13 +319,13 @@ export default function Products() {
       </div>
     </div>
     <div className="w-48 h-44 px-6 py-4 left-[40px] top-[35px] absolute justify-center items-center inline-flex">
-      <img  className="w-36 h-36" src={product.image} />
+      <img  style={{ marginLeft:"600px" , marginTop:"300px" }}   className=" w-36 h-36 " src={product.image} />
     </div>
   </div>
-  <div className="flex-col justify-start items-start gap-2 flex">
-    <div  style={{ marginLeft:"80px"  }} className="text-black text-base font-medium leading-normal">{product.name}</div>
+  <div  style={{ marginLeft:"450px" , marginTop:"300px" }} className="flex-col justify-start items-start gap-2 flex">
+    <div  style={{ marginLeft:"-130px"  }} className="w-60 h-90 px-0 py-4  rounded justify-center items-center gap-2.5 inline-flex">{product.name}</div>
     <div className="justify-start items-start gap-3 inline-flex">
-      <div style={{ marginLeft:"80px"  }} className="text-red-500 text-base font-medium leading-normal">{product.price}</div>
+      <div style={{ marginLeft:"-80px"  }} className="text-red-500 text-base font-medium leading-normal">{product.price}$</div>
       <div className="opacity-50 text-black text-base font-medium line-through leading-normal">$360</div>
     </div>
     <div className="justify-start items-start gap-2 inline-flex">
@@ -284,67 +334,121 @@ export default function Products() {
   </div>
 </div>
 </div>
-))}
 
+
+))}
 
 {/*explore our product*/}
 
-<div style={{marginTop:"150px" , marginLeft:"80px"}}>
-<div className="w-96 h-28 flex-col justify-start items-start gap-5 inline-flex">
-  <div className="justify-start items-center gap-4 inline-flex">
-    <div className="w-4 h-10 relative">
-      <div className="w-5 h-10 left-0 top-0 absolute bg-red-500 rounded"></div>
+<div style={{marginTop:"600px" , marginLeft:"80px"}}>
+<div  className="w-96 h-28 flex-col justify-start items-start gap-5 inline-flex">
+  <div  className="justify-start items-center gap-4 inline-flex">
+    <div  className="w-4 h-10 relative">
+      <div  className="w-5 h-10 left-0 top-0 absolute bg-red-500 rounded"></div>
     </div>
-    <div className="text-red-500 text-base font-semibold leading-tight">Our Products</div>
+    <div  className="text-red-500 text-base font-semibold leading-tight">Our Products</div>
   </div>
-  <div className="text-black text-0x6 font-semibold leading-10 tracking-wider">Explore Our Products</div>
+  <div  className="text-black text-0x6 font-semibold leading-10 tracking-wider">Explore Our Products</div>
 </div>
 </div>
 {/*our product*/}
 
 
-{ourProductData.map((product, index) => (
-  <div key={index} style={{ marginTop: "150px", marginLeft: "80px" }}>
-    <div className="w-64 h-80 flex-col justify-start items-start gap-4 inline-flex">
-      <div className="w-64 h-64 relative bg-neutral-00 rounded">
-        <div className="left-[224px] top-[12px] absolute flex-col justify-start items-start gap-2 inline-flex">
-          <div className="w-6 h-8 relative">
-            <div className="w-8 h-8 left-0 top-0 absolute bg-white rounded-full"></div>
-            <div className="w-6 h-6 left-[5px] top-[5px] absolute"></div>
-          </div>
-          <div className="w-8 h-8 relative">
-            <div className="w-8 h-8 left-0 top-0 absolute bg-white rounded-full"></div>
-            <div className="w-6 h-6 px-0.5 py-1 left-[5px] top-[5px] absolute justify-center items-center inline-flex">
-              <div className="w-5 h-3.5 relative"></div>
+{ filttered ?   filteredProducts.map((product)=>(
+
+ <div   className="w-60 h-10 px-0 py-4  rounded justify-center items-center gap-2.5 inline-flex"  style={{ marginLeft:"50px" , marginTop:"50px" }}   >
+  <div  className="w-64 h-80 flex-col justify-start items-start gap-4 inline-flex">
+    <div className="w-64 h-64 relative bg-neutral-0 rounded">
+      <div >
+        <div>
+          <div  className="w-8 h-8 left-0 top-0 absolute bg-white rounded-full"></div>
+          <div className="w-6 h-6 left-[5px] top-[5px] absolute"></div>
+        </div>
+        <div className="w-8 h-8 relative">
+          <div className="w-8 h-8 left-0 top-0 absolute bg-white rounded-full"></div>
+          <div className="w-6 h-6 px-0.5 py-1 left-[5px] top-[5px] absolute justify-center items-center inline-flex">
+            <div className="w-5 h-3.5 relative">
             </div>
           </div>
         </div>
-        <div className="w-48 h-44 left-[40px] top-[35px] absolute "></div>
-        <img className="w-44 h-40 left-[49px] top-[66px] absolute  " src={product.image} alt={product.name} />
       </div>
-      <div className="flex-col justify-start items-start gap-2 flex">
-        <div style={{ marginTop: "150px", marginLeft: "50px" }} className="text-black text-base font-medium leading-normal">
-          {product.name}
-        </div>
-        <div className="justify-start items-center gap-2 inline-flex">
-          <div className="justify-start items-start gap-3 flex">
-            <div style={{ marginTop: "10px", marginLeft: "110px" }} className="text-red-500 text-base font-medium leading-normal">
-              {product.price}
-            </div>
-          </div>
-          <div className="justify-start items-start gap-2 flex"></div>
-        </div>
+      <div className="w-48 h-44 px-6 py-4 left-[40px] top-[35px] absolute justify-center items-center inline-flex">
+        <img  style={{ marginLeft:"650px" , marginTop:"-0px" }}   className="w-36 h-36 " src={product.image} />
+      </div>
+    </div>
+    <div  style={{ marginLeft:"500px" , marginTop:"150px" }} className="flex-col justify-start items-start gap-2 flex">
+      <div  style={{ marginLeft:"-130px"  }} className="w-60 h-90 px-0 py-4  rounded justify-center items-center gap-2.5 inline-flex">{product.name}</div>
+      <div className="justify-start items-start gap-3 inline-flex">
+        <div style={{ marginLeft:"-80px"  }} className="text-red-500 text-base font-medium leading-normal">{product.price}</div>
+        <div className="opacity-50 text-black text-base font-medium line-through leading-normal">$360</div>
+      </div>
+      <div className="justify-start items-start gap-2 inline-flex">
+        <div className="justify-start items-start flex"></div>
       </div>
     </div>
   </div>
-))}
-<div style={{ marginTop: "80px", marginLeft: "800px" }} className="w-60 h-14 px-12 py-4 bg-red-500 rounded justify-center items-center gap-2.5 inline-flex">
-  <div className=" text-white text-neutral-50 text-base font-medium leading-normal">View All Products</div>
+  </div> 
+
+)) : 
+
+newdata.map((product)=>(
+
+  <div   className="w-60 h-10 px-0 py-4  rounded justify-center items-center gap-2.5 inline-flex" style={{ marginLeft:"50px" , marginTop:"50px" }}   >
+   <div  className="w-64 h-80 flex-col justify-start items-start gap-4 inline-flex">
+     <div className="w-64 h-64 relative bg-neutral-0 rounded">
+       <div >
+         <div>
+           <div  className="w-8 h-8 left-0 top-0 absolute bg-white rounded-full"></div>
+           <div className="w-6 h-6 left-[5px] top-[5px] absolute"></div>
+         </div>
+         <div className="w-8 h-8 relative">
+           <div className="w-8 h-8 left-0 top-0 absolute bg-white rounded-full"></div>
+           <div className="w-6 h-6 px-0.5 py-1 left-[5px] top-[5px] absolute justify-center items-center inline-flex">
+             <div className="w-5 h-3.5 relative">
+             </div>
+           </div>
+         </div>
+       </div>
+       <div className="w-48 h-44 px-6 py-4 left-[40px] top-[35px] absolute justify-center items-center inline-flex">
+         <img  style={{ marginLeft:"650px" , marginTop:"-0px" }}   className="w-36 h-36 " src={product.image} />
+       </div>
+     </div>
+     <div  style={{ marginLeft:"500px" , marginTop:"150px" }} className="flex-col justify-start items-start gap-2 flex">
+       <div  style={{ marginLeft:"-130px"  }} className="w-60 h-90 px-0 py-4  rounded justify-center items-center gap-2.5 inline-flex">{product.name}</div>
+       <div className="justify-start items-start gap-3 inline-flex">
+         <div style={{ marginLeft:"-80px"  }} className="text-red-500 text-base font-medium leading-normal">{product.price}</div>
+         <div className="opacity-50 text-black text-base font-medium line-through leading-normal">$360</div>
+       </div>
+       <div className="justify-start items-start gap-2 inline-flex">
+         <div className="justify-start items-start flex"></div>
+       </div>
+     </div>
+   </div>
+   </div> ))}
+   
+
+
+
+
+<div>
+<div style={{ marginTop: "400px", marginLeft: "800px" }} className="w-60 h-14 px-12 py-4 bg-red-500 rounded justify-center items-center gap-2.5 inline-flex">
+  <div  className=" text-white text-neutral-50 text-base font-medium leading-normal"></div>
+<button className=" text-white text-neutral-50 text-base font-medium leading-normal" 
+onClick={(()=>{setDisplayAllProducts(!displayAllProducts);
+setfiltered(false);
+setsliced(!sliced) ;
+sliced===true ? setnewdata(ourProduct.slice(0,2)) : setnewdata(ourProduct)})}
+>
+  
+{displayAllProducts ? "Hide Products" : "View All " }
+</button>
+
+</div>
 </div>
 
 
 {/*featured*/}
-<div style={{marginLeft:"80px"}}>
+<div style={{marginLeft:"80px" ,  marginTop:"200px"}}>
 <div  className="w-52 h-28 flex-col justify-start items-start gap-5 inline-flex">
   <div className="justify-start items-center gap-4 inline-flex">
     <div className="w-5 h-10 relative">
