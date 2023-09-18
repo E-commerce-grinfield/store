@@ -12,6 +12,7 @@ import { Product } from "@prisma/client";
 console.log(bestSelling);
 console.log(ourProduct);
 
+
 export default function Products() {
   // const [products , setProducts] = useState([])
   const [todaysData, setTodaysData] = useState([]);
