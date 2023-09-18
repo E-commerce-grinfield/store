@@ -4,7 +4,16 @@
         "description":"Whether you’re just beginning your skincare journey or looking to streamline your routine, Curology’s Starter Set makes it easy to meet your glow goals. This skincare set features a trio of our most-loved skincare essentials, designed and tested by dermatologists to deliver the best results in just three simple steps.",
         "image":"https://curology.com/static/587736447cdb7f3881874042d2f4575c/7cad7/completeSetMobile%402x.png",
         "price":"300$",
-        "category":"Health & Beauty"
+        "category":"Womans Fashion"
+
+
+},
+{
+    "name":"Glorious Model D Gaming Mouse Glossy Black",
+    "description":"Glorious Gaming Mouse, Wired Gaming Mouse with RGB Backlit, 8000 DPI Adjustable, Mouse with 9 Programmable Macro Buttons & Fire Button, Software Supports DIY Keybinds, M910-K",
+    "image":"https://www.maxgaming.com/bilder/artiklar/15579.jpg?m=1588925250",
+    "price":"80$",
+    "category":"Gaming"
 
 
 },
@@ -17,5 +26,6 @@
 
 
 }
+
 
 ]

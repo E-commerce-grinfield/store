@@ -6,9 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "init:database": "npx prisma init",
+    "migrate:dev": "npx prisma migrate dev --name init",
+    "migrate:database": "npx prisma migrate dev --name init",
+    "prisma:generate": "npx prisma generate",
+    "prisma:full": "npx prisma migrate dev --name init && npx prisma generate"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.11.0",
     "@prisma/client": "^5.2.0",
     "@types/bcrypt": "^5.0.0",
     "@types/cookie": "^0.5.2",
@@ -31,7 +37,9 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-hook-form": "^7.46.1",
+    "react-rating": "^2.0.5",
     "react-select": "^5.7.4",
+    "react-toastify": "^9.1.3",
     "tailwindcss": "3.3.3",
     "typescript": "5.2.2"
   },

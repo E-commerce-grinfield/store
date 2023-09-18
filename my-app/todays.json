@@ -1,42 +1,118 @@
 [
-
     {
-        "id":1,
-        "name":"Havit gaming Gamepad",
-        "description":"wireless gamepad for computer and game console Sony Playstation 2/3. The model is equipped with 12 buttons, 8-position switch types and two analog joysticks, allowing you to play additional games, such as racing or football simulators.",
-        "image":"https://mmsrilanka.com/image/cache/catalog/data/Products/Gaming%20Zone/Controllers/HV-G89W-Red-550x550.jpg",
-        "price":"160",
-        "category":"Gaming"
-    }, 
-    {
-        "id":2,
-        "name":"Men's Jacket White PNG & PSD ",
-        "description":"new collection of 2023",
-        "image":"https://atlas-content-cdn.pixelsquid.com/stock-images/men-s-jacket-white-sports-coat-o0LV9v2-600.jpg",
-        "price":"200",
-        "category":"Men’s Fashion"
+        "name": "Havic HV G-92 Gamepad",
+        "rating": 4,
+        "category": "Gaming",
+        "numberReviews": 150,
+        "isInStock": true,
+        "price": 192,
+        "reducedPercentage": 0,
+        "description": "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+        "colors": [
+            "#A0BCE0",
+            "#E07575"
+        ],
+        "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "image": "./assets/images/product-details-img1.svg",
+        "images": [
+            "./assets/images/product-details-img1.svg",
+            "./assets/images/product-details-img2.svg",
+            "./assets/images/product-details-img3.svg",
+            "./assets/images/product-details-img4.svg"
+        ],
+        "isInWishlist": false
     },
     {
-        "id":3,
-        "name":"Bread Dry dog Food",
-        "description":"Eukanuba Puppy Small Breed dry dog food is complete and balanced nutrition for small breed puppies up to 12 months old with an expected adult weight under 23 lbs. As a result of increased demand, you may experience difficulty purchasing certain products in the coming months. If you need an alternative diet recommendation or help locating a product, please contact our Nutritional Advisors at 800-592-6687 or via our Live Chat function.",
-        "image":"https://www.hillspet.com/content/dam/pim/hills/en_us/sd/dry/sd-canine-adult-large-breed-dry-productShot_zoom.jpg",
-        "price":"80",
-        "category":"Groceries & Pets"
-
+        "name": "Men's Jacket White PNG & PSD ",
+        "price": "150",
+        "category": "Men’s Fashion",
+        "rating": 4,
+        "numberReviews": 150,
+        "isInStock": true,
+        "reducedPercentage": 0,
+        "description": "PlayStation 5 Controller Skin High quality vinyl with air channel adhesive for easy bubble free install & mess free removal Pressure sensitive.",
+        "colors": [
+            "#A0BCE0",
+            "#E07575"
+        ],
+        "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "image": "https://atlas-content-cdn.pixelsquid.com/stock-images/men-s-jacket-white-sports-coat-o0LV9v2-600.jpg",
+        "images": [
+            "https://atlas-content-cdn.pixelsquid.com/stock-images/men-s-jacket-white-sports-coat-o0LV9v2-600.jpg",
+            "https://atlas-content-cdn.pixelsquid.com/stock-images/men-s-jacket-white-sports-coat-o0LV9v2-600.jpg",
+            "https://atlas-content-cdn.pixelsquid.com/stock-images/men-s-jacket-white-sports-coat-o0LV9v2-600.jpg",
+            "https://atlas-content-cdn.pixelsquid.com/stock-images/men-s-jacket-white-sports-coat-o0LV9v2-600.jpg"
+        ],
+        "isInWishlist": true
     },
-
-    {  "id":4,
-        "name":"MSI G2412, 24 Gaming Monitor",
-        "description":"MSI G2412, 24 Gaming Monitor, 1920 x 1080 (FHD), IPS, 1ms, 170Hz, FreeSync Premium, HDMI, Displayport, Tilt, Black",
-        "image":"https://m.media-amazon.com/images/I/61sBrS2V17L._AC_UF894,1000_QL80_.jpg",
-        "price":"250",
-        "category":"Gaming"
-
-
-
+    {
+        "name": "Bread Dry dog Food",
+        "description": "Eukanuba Puppy Small Breed dry dog food is complete and balanced nutrition for small breed puppies up to 12 months old with an expected adult weight under 23 lbs. As a result of increased demand, you may experience difficulty purchasing certain products in the coming months. If you need an alternative diet recommendation or help locating a product, please contact our Nutritional Advisors at 800-592-6687 or via our Live Chat function.",
+        "image": "https://www.hillspet.com/content/dam/pim/hills/en_us/sd/dry/sd-canine-adult-large-breed-dry-productShot_zoom.jpg",
+        "price": "80",
+        "category": "Groceries & Pets",
+        "rating": 4,
+        "numberReviews": 150,
+        "isInStock": true,
+        "reducedPercentage": 0,
+        "colors": [
+            "#A0BCE0",
+            "#E07575"
+        ],
+        "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "images": [
+            "https://www.hillspet.com/content/dam/pim/hills/en_us/sd/dry/sd-canine-adult-large-breed-dry-productShot_zoom.jpg",
+            "https://www.hillspet.com/content/dam/pim/hills/en_us/sd/dry/sd-canine-adult-large-breed-dry-productShot_zoom.jpg",
+            "https://www.hillspet.com/content/dam/pim/hills/en_us/sd/dry/sd-canine-adult-large-breed-dry-productShot_zoom.jpg",
+            "https://www.hillspet.com/content/dam/pim/hills/en_us/sd/dry/sd-canine-adult-large-breed-dry-productShot_zoom.jpg"
+        ],
+        "isInWishlist": true
+    },
+    {
+        "image": "https://m.media-amazon.com/images/I/61sBrS2V17L._AC_UF894,1000_QL80_.jpg",
+        "name": "MSI G2412, 24 Gaming Monitor",
+        "description": "MSI G2412, 24 Gaming Monitor, 1920 x 1080 (FHD), IPS, 1ms, 170Hz, FreeSync Premium, HDMI, Displayport, Tilt, Black",
+        "price": "80",
+        "category": "Groceries & Pets",
+        "rating": 4,
+        "numberReviews": 150,
+        "isInStock": true,
+        "reducedPercentage": 0,
+        "colors": [
+            "#A0BCE0",
+            "#E07575"
+        ],
+        "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "images": [
+            "https://m.media-amazon.com/images/I/61sBrS2V17L._AC_UF894,1000_QL80_.jpg",
+            "https://m.media-amazon.com/images/I/61sBrS2V17L._AC_UF894,1000_QL80_.jpg",
+            "https://m.media-amazon.com/images/I/61sBrS2V17L._AC_UF894,1000_QL80_.jpg",
+            "https://m.media-amazon.com/images/I/61sBrS2V17L._AC_UF894,1000_QL80_.jpg"
+        ],
+        "isInWishlist": true
     }
-
-    
-
 ]
