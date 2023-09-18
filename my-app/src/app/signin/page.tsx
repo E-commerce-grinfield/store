@@ -35,6 +35,7 @@ const signin = () => {
   };
 
 
+
   return (
     <div className="top-[200px] left-[0px] flex flex-row items-center justify-start  text-17xl font-heading-36px-medium pt-[60px] pb-[140px] border-red-600 max-w-[1160px] mx-auto">
       <div className="relative rounded-tl-none rounded-tr rounded-br rounded-bl-none bg-powderblue w-[805px] h-[781px]  shrink-0">

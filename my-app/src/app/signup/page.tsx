@@ -28,11 +28,12 @@ const Signup: React.FC = () => {
     }
     const newUser = {
       name: username,
-      lastname: "",
-      email: useremail,
-      password: userpw,
-      role: selectedRole?.value ?? "",
-      status: 0,
+      lastname:"",
+      email:useremail,
+      password:userpw,
+      role: selectedRole?.value ?? '',
+      status:0 ,
+      address : ""
     };
 
     try {
