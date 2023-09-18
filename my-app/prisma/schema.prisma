@@ -7,46 +7,47 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url = "mysql://root:root@localhost:3306/store"
+  url      = "mysql://root:root@localhost:3306/store"
 }
-
 
 model user {
-  id Int @id @default(autoincrement())
-  name String
+  id       Int    @id @default(autoincrement())
+  name     String
   lastName String
-  email String
+  email    String
   password String
-  role String
-  status Int
+  role     String
+  status   Int
 
-  createdAt DateTime @default(now())
-  updateAt DateTime @updatedAt 
-  favorite Favorites []
-  cart  Carts []
+  createdAt DateTime    @default(now())
+  updateAt  DateTime    @updatedAt
+  favorite  Favorites[]
+  cart      Carts[]
 }
+
 model Product {
-  id          Int       @id @default(autoincrement())
+  id          Int         @id @default(autoincrement())
   name        String
   price       Float
   category    String
-  description String 
-  image       String @db.LongText
-  cart Carts []
-  products Favorites []
-} 
-model Favorites{
-  id Int @id @default(autoincrement())
-  user user  @relation(fields: [userId], references: [id])
-  userId Int
-  products  Product   @relation(fields:[productId] ,references :[id])
+  description String
+  image       String      @db.LongText
+  cart        Carts[]
+  products    Favorites[]
+}
+
+model Favorites {
+  id        Int     @id @default(autoincrement())
+  user      user    @relation(fields: [userId], references: [id])
+  userId    Int
+  products  Product @relation(fields: [productId], references: [id])
   productId Int
 }
-model Carts{
-  id Int @id @default(autoincrement())
-  user user   @relation(fields:[userId] ,references :[id])
- product   Product  @relation(fields:[productId] ,references :[id])
-  productId Int
- userId Int
 
+model Carts {
+  id        Int     @id @default(autoincrement())
+  user      user    @relation(fields: [userId], references: [id])
+  product   Product @relation(fields: [productId], references: [id])
+  productId Int
+  userId    Int
 }
