@@ -27,7 +27,9 @@ console.log(username);
       email:useremail,
       password:userpw,
       role: selectedRole?.value ?? '',
-      status:0
+      status:0 ,
+      address : ""
+
     };
 
     try {

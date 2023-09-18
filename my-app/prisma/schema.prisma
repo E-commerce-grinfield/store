@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "mysql"
-  url = "mysql://root:root@localhost:3306/store"
+  url = "mysql://root:123456@localhost:3306/store"
 }
 
 
@@ -19,6 +19,7 @@ model user {
   password String
   role String
   status Int
+  address String
 
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt 

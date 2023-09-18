@@ -13,7 +13,7 @@ function header() {
 </div>
 
     
-<div className="w-full w-[1440px] h-12 pl-[445px] pr-[136px] py-3 bg-black justify-end items-center inline-flex">
+<div className="w-screen  h-12 pl-[445px] pr-[136px] py-3 bg-black justify-end items-center inline-flex">
   <div className="justify-start items-start gap-[531px] inline-flex">
     <div className="justify-start items-center gap-2 flex">
       <div className="w-[474px] h-[18px] text-neutral-50 text-sm font-normal leading-[21px]">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!</div>
@@ -58,7 +58,7 @@ function header() {
   <div  className="justify-center items-center gap-1 inline-flex">
   <div  className="w-0 h-15 relative"></div>
     
-    <input style={{marginLeft:"200px"}} className= "opacity-100 text-black text-xs font-normal leading-none w-60 h-9 pl-5 pr-3 py-1.5 bg-neutral-100 rounded flex-col justify-center items-center gap-2.5 inline-flex"></input>
+    <input  className= " ml-50 opacity-100 text-black text-xs font-normal leading-none w-60 h-9 pl-5 pr-3 py-1.5 bg-neutral-100 rounded flex-col justify-center items-center gap-2.5 inline-flex"></input>
   
     <Link href="/cart">
   <img style={{ marginLeft: "20px" }} className='w-6 h-15 relative' src='https://www.freeiconspng.com/thumbs/buy-icon-png/buy-icon-32.png'/>

@@ -1,6 +1,9 @@
-import { verify } from "jsonwebtoken"
+import { JwtPayload, verify } from "jsonwebtoken"
 import { cookies } from "next/headers"
 import { NextResponse } from "next/server"
+interface MyJwtPayload extends JwtPayload {
+    userId: string; 
+}
 export const GET = async () => {
 
     const cookieStore = cookies()
@@ -19,11 +22,15 @@ export const GET = async () => {
     const  access= process.env.ACCESS_TOKEN_SECRET || ""
     try{
         
- verify(token.value,access)
+ const decodedToken =verify(token.value,access) as MyJwtPayload
+ 
+ 
+ 
 
  return NextResponse.json(
     {
-        user: "access granted"
+        user: "access granted",
+        tokeninfo : decodedToken.userId
     },
     {
         status: 201
